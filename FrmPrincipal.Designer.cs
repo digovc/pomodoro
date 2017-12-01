@@ -67,12 +67,14 @@
             this.tsmIntervaloCurto.Name = "tsmIntervaloCurto";
             this.tsmIntervaloCurto.Size = new System.Drawing.Size(154, 22);
             this.tsmIntervaloCurto.Text = "Intervalo curto";
+            this.tsmIntervaloCurto.Click += new System.EventHandler(this.tsmIntervaloCurto_Click);
             // 
             // tsmIntervaloLongo
             // 
             this.tsmIntervaloLongo.Name = "tsmIntervaloLongo";
             this.tsmIntervaloLongo.Size = new System.Drawing.Size(154, 22);
             this.tsmIntervaloLongo.Text = "Intervalo longo";
+            this.tsmIntervaloLongo.Click += new System.EventHandler(this.tsmIntervaloLongo_Click);
             // 
             // FrmPrincipal
             // 

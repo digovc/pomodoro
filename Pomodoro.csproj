@@ -63,6 +63,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -73,6 +74,90 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_empty.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_5.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_6.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_7.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_8.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_curto_finished.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_5.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_6.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_7.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_8.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_intervalo_longo_finished.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_5.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_6.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_7.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_8.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\media\ico\icon_pomodoro_finished.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
