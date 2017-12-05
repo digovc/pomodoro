@@ -143,16 +143,6 @@ namespace Pomodoro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon icon_intervalo_curto_8 {
-            get {
-                object obj = ResourceManager.GetObject("icon_intervalo_curto_8", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
         internal static System.Drawing.Icon icon_intervalo_curto_finished {
             get {
                 object obj = ResourceManager.GetObject("icon_intervalo_curto_finished", resourceCulture);
@@ -233,16 +223,6 @@ namespace Pomodoro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon icon_intervalo_longo_8 {
-            get {
-                object obj = ResourceManager.GetObject("icon_intervalo_longo_8", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
         internal static System.Drawing.Icon icon_intervalo_longo_finished {
             get {
                 object obj = ResourceManager.GetObject("icon_intervalo_longo_finished", resourceCulture);
@@ -316,16 +296,6 @@ namespace Pomodoro.Properties {
         internal static System.Drawing.Icon icon_pomodoro_7 {
             get {
                 object obj = ResourceManager.GetObject("icon_pomodoro_7", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_pomodoro_8 {
-            get {
-                object obj = ResourceManager.GetObject("icon_pomodoro_8", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

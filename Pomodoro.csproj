@@ -24,12 +24,15 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon_pomodoro_finished.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -100,9 +103,6 @@
     <None Include="res\media\ico\icon_intervalo_curto_7.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\media\ico\icon_intervalo_curto_8.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="res\media\ico\icon_intervalo_curto_finished.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\media\ico\icon_intervalo_longo_7.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\media\ico\icon_intervalo_longo_8.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\media\ico\icon_intervalo_longo_finished.ico" />
@@ -154,10 +151,10 @@
     <None Include="res\media\ico\icon_pomodoro_7.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\media\ico\icon_pomodoro_8.ico" />
+    <None Include="res\media\ico\icon_pomodoro_finished.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\media\ico\icon_pomodoro_finished.ico" />
+    <Content Include="icon_pomodoro_finished.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

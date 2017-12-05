@@ -142,9 +142,6 @@
   <data name="icon_intervalo_curto_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\media\ico\icon_intervalo_curto_7.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_intervalo_curto_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\media\ico\icon_intervalo_curto_8.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_intervalo_curto_finished" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\media\ico\icon_intervalo_curto_finished.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,9 +166,6 @@
   <data name="icon_intervalo_longo_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\media\ico\icon_intervalo_longo_7.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_intervalo_longo_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\media\ico\icon_intervalo_longo_8.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_intervalo_longo_finished" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\media\ico\icon_intervalo_longo_finished.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -195,9 +189,6 @@
   </data>
   <data name="icon_pomodoro_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\media\ico\icon_pomodoro_7.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_pomodoro_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\media\ico\icon_pomodoro_8.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_pomodoro_finished" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\media\ico\icon_pomodoro_finished.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

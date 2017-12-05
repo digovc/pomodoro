@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
@@ -94,6 +95,15 @@ namespace Pomodoro
 
         #region Métodos
 
+        private void abrirMenu()
+        {
+            var objPoint = new System.Drawing.Point(SystemInformation.PrimaryMonitorMaximizedWindowSize.Width - 180, SystemInformation.PrimaryMonitorMaximizedWindowSize.Height - 5);
+
+            objPoint = this.PointToClient(objPoint);
+
+            this.cms.Show(this, objPoint);
+        }
+
         private void atualizar()
         {
             if (this.lstTrdCancelada.Contains(Thread.CurrentThread))
@@ -109,12 +119,39 @@ namespace Pomodoro
 
             if (tmsRestante.TotalMilliseconds < 0)
             {
+                this.atualizarConcluir();
                 return;
             }
 
             Thread.Sleep(15 * 1000);
 
             this.atualizar();
+        }
+
+        private void atualizarConcluir()
+        {
+            var strDescricao = string.Empty;
+            var strTitulo = string.Empty;
+
+            switch (this.enmTipo)
+            {
+                case EnmTipo.INTERVALO_CURTO:
+                    strDescricao = "O intervalo curto acabou.";
+                    strTitulo = "Intervalo concluído";
+                    break;
+
+                case EnmTipo.INTERVALO_LONGO:
+                    strDescricao = "O intervalo longo acabou.";
+                    strTitulo = "Intervalo concluído";
+                    break;
+
+                default:
+                    strDescricao = "O pomodoro acabou.";
+                    strTitulo = "Pomodoro";
+                    break;
+            }
+
+            this.nti.ShowBalloonTip(250, strTitulo, strDescricao, ToolTipIcon.None);
         }
 
         private void atualizarIcon(TimeSpan tmsRestante)
@@ -129,7 +166,13 @@ namespace Pomodoro
 
             var decPercentualConcluido = ((intDuracao - tmsRestante.TotalMinutes) / intDuracao * 100);
 
-            if (decPercentualConcluido < (100 / 8 * 1))
+            if (decPercentualConcluido < (100 / 7 * .5))
+            {
+                this.nti.Icon = Properties.Resources.icon_empty;
+                return;
+            }
+
+            if (decPercentualConcluido < (100 / 7 * 1))
             {
                 switch (this.enmTipo)
                 {
@@ -147,7 +190,7 @@ namespace Pomodoro
                 }
             }
 
-            if (decPercentualConcluido < (100 / 8 * 2))
+            if (decPercentualConcluido < (100 / 7 * 2))
             {
                 switch (this.enmTipo)
                 {
@@ -165,7 +208,7 @@ namespace Pomodoro
                 }
             }
 
-            if (decPercentualConcluido < (100 / 8 * 3))
+            if (decPercentualConcluido < (100 / 7 * 3))
             {
                 switch (this.enmTipo)
                 {
@@ -183,7 +226,7 @@ namespace Pomodoro
                 }
             }
 
-            if (decPercentualConcluido < (100 / 8 * 4))
+            if (decPercentualConcluido < (100 / 7 * 4))
             {
                 switch (this.enmTipo)
                 {
@@ -201,7 +244,7 @@ namespace Pomodoro
                 }
             }
 
-            if (decPercentualConcluido < (100 / 8 * 5))
+            if (decPercentualConcluido < (100 / 7 * 5))
             {
                 switch (this.enmTipo)
                 {
@@ -219,7 +262,7 @@ namespace Pomodoro
                 }
             }
 
-            if (decPercentualConcluido < (100 / 8 * 6))
+            if (decPercentualConcluido < (100 / 7 * 6))
             {
                 switch (this.enmTipo)
                 {
@@ -237,7 +280,7 @@ namespace Pomodoro
                 }
             }
 
-            if (decPercentualConcluido < (100 / 8 * 7))
+            if (decPercentualConcluido < (100 / 7 * 7))
             {
                 switch (this.enmTipo)
                 {
@@ -251,24 +294,6 @@ namespace Pomodoro
 
                     default:
                         this.nti.Icon = Properties.Resources.icon_pomodoro_7;
-                        return;
-                }
-            }
-
-            if (decPercentualConcluido < (100 / 8 * 8))
-            {
-                switch (this.enmTipo)
-                {
-                    case EnmTipo.INTERVALO_CURTO:
-                        this.nti.Icon = Properties.Resources.icon_intervalo_curto_8;
-                        return;
-
-                    case EnmTipo.INTERVALO_LONGO:
-                        this.nti.Icon = Properties.Resources.icon_intervalo_longo_8;
-                        return;
-
-                    default:
-                        this.nti.Icon = Properties.Resources.icon_pomodoro_8;
                         return;
                 }
             }
@@ -294,7 +319,7 @@ namespace Pomodoro
 
         private void atualizarTitulo(TimeSpan tmsRestante)
         {
-            var strTitulo = this.getStrTitulo();
+            var strTitulo = this.getStrTitulo(tmsRestante);
 
             strTitulo = string.Format(strTitulo, Math.Round(tmsRestante.TotalMinutes));
 
@@ -316,24 +341,68 @@ namespace Pomodoro
             }
         }
 
-        private string getStrTitulo()
+        private string getStrTitulo(TimeSpan tmsRestante)
         {
             switch (this.enmTipo)
             {
                 case EnmTipo.INTERVALO_CURTO:
-                    return "Intervalo curto ({0})";
+
+                    if (tmsRestante.TotalMinutes < 2)
+                    {
+                        return "Intervalo curto (1 minuto restante)";
+                    }
+                    else
+                    {
+                        return "Intervalo curto ({0} minutos restantes)";
+                    }
 
                 case EnmTipo.INTERVALO_LONGO:
-                    return "Intervalo longo ({0})";
+
+                    if (tmsRestante.TotalMinutes < 2)
+                    {
+                        return "Intervalo longo (1 minuto restante)";
+                    }
+                    else
+                    {
+                        return "Intervalo longo ({0} minutos restantes)";
+                    }
 
                 default:
-                    return "Pomodoro ({0})";
+
+                    if (tmsRestante.TotalMinutes < 2)
+                    {
+                        return "Pomodoro (1 minuto restante)";
+                    }
+                    else
+                    {
+                        return "Pomodoro ({0} minutos restantes)";
+                    }
             }
         }
 
         private TimeSpan getTmsTempoRestante()
         {
             return (this.dttInicio.AddMinutes(this.getIntMinutoDuracao()) - DateTime.Now);
+        }
+
+        private void iniciar()
+        {
+            this.nti.Visible = true;
+            this.Visible = false;
+
+            this.iniciarIniciarJuntoWindows();
+        }
+
+        private void iniciarIniciarJuntoWindows()
+        {
+#if DEBUG
+            return;
+#endif
+
+            using (var objRegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                objRegistryKey.SetValue(Application.CompanyName, Application.ExecutablePath);
+            }
         }
 
         private void iniciarIntervalo(EnmTipo enmTipo)
@@ -369,8 +438,7 @@ namespace Pomodoro
         {
             base.OnShown(e);
 
-            this.nti.Visible = true;
-            this.Visible = false;
+            this.iniciar();
         }
 
         /// <summary>
@@ -383,6 +451,11 @@ namespace Pomodoro
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new FrmPrincipal());
+        }
+
+        private void nti_Click(object sender, EventArgs e)
+        {
+            this.abrirMenu();
         }
 
         private void tsmIntervaloCurto_Click(object sender, EventArgs e)

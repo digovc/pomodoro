@@ -45,6 +45,7 @@
             this.nti.Icon = ((System.Drawing.Icon)(resources.GetObject("nti.Icon")));
             this.nti.Text = "Pomodoro";
             this.nti.Visible = true;
+            this.nti.Click += new System.EventHandler(this.nti_Click);
             // 
             // cms
             // 
