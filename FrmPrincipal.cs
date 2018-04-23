@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace Pomodoro
         private DateTime _dttInicio;
         private EnmTipo _enmTipo;
         private List<Thread> _lstTrdCancelada;
-
+        private StringBuilder _stbHistorico;
         private Thread _trdAtual;
 
         private DateTime dttInicio
@@ -69,6 +70,21 @@ namespace Pomodoro
             }
         }
 
+        private StringBuilder stbHistorico
+        {
+            get
+            {
+                if (_stbHistorico != null)
+                {
+                    return _stbHistorico;
+                }
+
+                _stbHistorico = new StringBuilder("Histórico de intervalos:" + Environment.NewLine + Environment.NewLine);
+
+                return _stbHistorico;
+            }
+        }
+
         private Thread trdAtual
         {
             get
@@ -95,13 +111,16 @@ namespace Pomodoro
 
         #region Métodos
 
-        private void abrirMenu()
+        private void abrirHistorico()
         {
-            var objPoint = new System.Drawing.Point(SystemInformation.PrimaryMonitorMaximizedWindowSize.Width - 180, SystemInformation.PrimaryMonitorMaximizedWindowSize.Height - 5);
+            Clipboard.SetText(this.stbHistorico.ToString());
 
-            objPoint = this.PointToClient(objPoint);
+            this.nti.ShowBalloonTip(250, "Histórico", "Histórico copiado para área de transferência.", ToolTipIcon.None);
+        }
 
-            this.cms.Show(this, objPoint);
+        private void addHistorico(string strEvento)
+        {
+            this.stbHistorico.AppendLine(DateTime.Now.ToString("HH:mm: ") + strEvento);
         }
 
         private void atualizar()
@@ -138,16 +157,19 @@ namespace Pomodoro
                 case EnmTipo.INTERVALO_CURTO:
                     strDescricao = "O intervalo curto acabou.";
                     strTitulo = "Intervalo concluído";
+                    this.addHistorico("Intervalo curto concluído");
                     break;
 
                 case EnmTipo.INTERVALO_LONGO:
                     strDescricao = "O intervalo longo acabou.";
                     strTitulo = "Intervalo concluído";
+                    this.addHistorico("Intervalo longo concluído;");
                     break;
 
                 default:
                     strDescricao = "O pomodoro acabou.";
                     strTitulo = "Pomodoro";
+                    this.addHistorico("Pomodoro concluído;");
                     break;
             }
 
@@ -407,13 +429,13 @@ namespace Pomodoro
 
         private void iniciarIntervalo(EnmTipo enmTipo)
         {
-            this.dttInicio = DateTime.Now;
-            this.enmTipo = enmTipo;
-
             if (this.trdAtual != null)
             {
                 this.lstTrdCancelada.Add(this.trdAtual);
             }
+
+            this.dttInicio = DateTime.Now;
+            this.enmTipo = enmTipo;
 
             this.trdAtual = new Thread(this.atualizar);
 
@@ -421,6 +443,26 @@ namespace Pomodoro
             this.trdAtual.Priority = ThreadPriority.Lowest;
 
             this.trdAtual.Start();
+
+            this.iniciarIntervaloHistorico(enmTipo);
+        }
+
+        private void iniciarIntervaloHistorico(EnmTipo enmTipo)
+        {
+            switch (enmTipo)
+            {
+                case EnmTipo.INTERVALO_CURTO:
+                    this.addHistorico("Intervalo curto iniciado;");
+                    return;
+
+                case EnmTipo.INTERVALO_LONGO:
+                    this.addHistorico("Intervalo longo iniciado;");
+                    return;
+
+                default:
+                    this.addHistorico("Pomodoro iniciado;");
+                    return;
+            }
         }
 
         #endregion Métodos
@@ -453,9 +495,9 @@ namespace Pomodoro
             Application.Run(new FrmPrincipal());
         }
 
-        private void nti_Click(object sender, EventArgs e)
+        private void tsmHistorico_Click(object sender, EventArgs e)
         {
-            this.abrirMenu();
+            this.abrirHistorico();
         }
 
         private void tsmIntervaloCurto_Click(object sender, EventArgs e)

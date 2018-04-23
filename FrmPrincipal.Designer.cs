@@ -35,6 +35,8 @@
             this.tsmPomodoro = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmIntervaloCurto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmIntervaloLongo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tss1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmHistorico = new System.Windows.Forms.ToolStripMenuItem();
             this.cms.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,16 +47,17 @@
             this.nti.Icon = ((System.Drawing.Icon)(resources.GetObject("nti.Icon")));
             this.nti.Text = "Pomodoro";
             this.nti.Visible = true;
-            this.nti.Click += new System.EventHandler(this.nti_Click);
             // 
             // cms
             // 
             this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmPomodoro,
             this.tsmIntervaloCurto,
-            this.tsmIntervaloLongo});
+            this.tsmIntervaloLongo,
+            this.tss1,
+            this.tsmHistorico});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(155, 70);
+            this.cms.Size = new System.Drawing.Size(155, 98);
             // 
             // tsmPomodoro
             // 
@@ -77,6 +80,18 @@
             this.tsmIntervaloLongo.Text = "Intervalo longo";
             this.tsmIntervaloLongo.Click += new System.EventHandler(this.tsmIntervaloLongo_Click);
             // 
+            // tss1
+            // 
+            this.tss1.Name = "tss1";
+            this.tss1.Size = new System.Drawing.Size(151, 6);
+            // 
+            // tsmHistorico
+            // 
+            this.tsmHistorico.Name = "tsmHistorico";
+            this.tsmHistorico.Size = new System.Drawing.Size(154, 22);
+            this.tsmHistorico.Text = "Histórico";
+            this.tsmHistorico.Click += new System.EventHandler(this.tsmHistorico_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,5 +113,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPomodoro;
         private System.Windows.Forms.ToolStripMenuItem tsmIntervaloCurto;
         private System.Windows.Forms.ToolStripMenuItem tsmIntervaloLongo;
+        private System.Windows.Forms.ToolStripSeparator tss1;
+        private System.Windows.Forms.ToolStripMenuItem tsmHistorico;
     }
 }
